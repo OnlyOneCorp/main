@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OnlyOne — For a Happy Day</title>
+<meta name="description" content="Small things by OnlyOne that make your day a little better." />
+<!-- When you connect a custom domain, set this to your real URL: -->
+<!-- <link rel="canonical" href="https://onlyone.com/" /> -->
+
+<!-- ============================================================
+     Google Analytics (GA4) + Consent Mode v2
+     1) Replace G-XXXXXXXXXX (two places) with your Measurement ID.
+     2) Cookies stay OFF until the visitor taps "Accept" on the banner.
+        (Until then GA collects nothing that needs consent.)
+============================================================ -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Default: everything denied until the user agrees.
+  gtag('consent','default',{
+    ad_storage:'denied', ad_user_data:'denied',
+    ad_personalization:'denied', analytics_storage:'denied',
+    wait_for_update:500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<style>
+  :root{
+    --bg:#fbfbfd; --surface:#ffffff; --ink:#1d1d1f; --ink-2:#6e6e73;
+    --hair:#e3e3e8; --brand:#3f474e; --brand-soft:#f1f2f4;
+    --radius:22px; --maxw:980px; --ease:cubic-bezier(.4,0,.2,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",Helvetica,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.5;letter-spacing:-0.01em;
+  }
+  a{color:inherit;text-decoration:none}
+  button{font:inherit}
+
+  /* Top bar */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;padding:14px 22px;
+    background:rgba(251,251,253,.72);
+    backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);
+    border-bottom:1px solid transparent;transition:border-color .3s var(--ease);
+  }
+  header.scrolled{border-bottom-color:var(--hair)}
+  .brand{display:flex;align-items:center;gap:9px;font-weight:600;font-size:17px}
+  .lang-toggle{
+    border:1px solid var(--hair);background:var(--surface);color:var(--ink);
+    font-size:14px;font-weight:500;padding:7px 15px;border-radius:980px;cursor:pointer;
+    transition:transform .2s var(--ease),background .2s var(--ease);
+  }
+  .lang-toggle:hover{background:var(--brand-soft)}
+  .lang-toggle:active{transform:scale(.96)}
+
+  /* Hero */
+  .hero{
+    min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:120px 24px 80px;
+    background:radial-gradient(120% 90% at 50% 0%,#ffffff 0%,var(--bg) 60%);
+  }
+  .hero .mark{margin-bottom:30px}
+  .hero h1{font-size:clamp(44px,9vw,84px);font-weight:700;line-height:1.04;letter-spacing:-0.03em}
+  .hero .sub{margin-top:20px;max-width:520px;font-size:clamp(18px,2.4vw,22px);color:var(--ink-2);font-weight:400}
+  .happy{
+    margin-top:34px;height:24px;font-size:15px;font-weight:500;color:var(--brand);letter-spacing:.01em;
+    transition:opacity .5s var(--ease),transform .5s var(--ease);
+  }
+  .scroll-cue{
+    margin-top:54px;color:var(--ink-2);display:flex;flex-direction:column;align-items:center;gap:6px;
+    font-size:13px;animation:bob 2.4s var(--ease) infinite;
+  }
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+
+  /* Panels */
+  .sites{padding:40px 24px 20px}
+  .panel{
+    max-width:var(--maxw);margin:0 auto 26px;background:var(--surface);
+    border:1px solid var(--hair);border-radius:var(--radius);padding:56px 48px;
+    display:flex;align-items:center;gap:40px;
+    transition:transform .4s var(--ease),box-shadow .4s var(--ease),opacity .6s var(--ease);
+    opacity:0;transform:translateY(28px);
+  }
+  .panel.in{opacity:1;transform:none}
+  .panel:hover{transform:translateY(-4px);box-shadow:0 24px 60px -28px rgba(31,31,35,.28)}
+  .panel .icon{
+    flex:none;width:88px;height:88px;border-radius:24px;background:var(--brand-soft);
+    display:flex;align-items:center;justify-content:center;color:var(--brand);
+  }
+  .panel .body{flex:1;min-width:0}
+  .panel h2{font-size:clamp(26px,4vw,34px);font-weight:700;letter-spacing:-0.02em}
+  .panel .desc{margin-top:8px;font-size:18px;color:var(--ink-2)}
+  .panel .go{
+    margin-top:22px;display:inline-flex;align-items:center;gap:7px;background:var(--brand);color:#fff;
+    font-size:15px;font-weight:500;padding:11px 22px;border-radius:980px;
+    transition:transform .2s var(--ease);
+  }
+  .panel .go:hover{transform:scale(1.03)}
+  .panel .go:active{transform:scale(.97)}
+  .panel .go.soon{background:var(--brand-soft);color:var(--ink-2);cursor:default}
+  .panel .go.soon:hover{transform:none}
+  .panel .go .arr{transition:transform .2s var(--ease)}
+  .panel .go:not(.soon):hover .arr{transform:translateX(3px)}
+
+  /* Ad slot (hidden until you're ready — see notes near bottom of <script>) */
+  .ad-slot{max-width:var(--maxw);margin:0 auto 26px;min-height:90px;
+    display:flex;align-items:center;justify-content:center;
+    border:1px dashed var(--hair);border-radius:var(--radius);color:var(--ink-2);font-size:13px}
+
+  /* Footer */
+  footer{text-align:center;padding:80px 24px 70px;color:var(--ink-2)}
+  footer .ft-mark{opacity:.5;margin-bottom:20px}
+  footer .say{font-size:20px;color:var(--ink);font-weight:500}
+  footer a.mail{color:var(--brand);font-weight:600}
+  footer .links{margin-top:22px;font-size:13px;display:flex;gap:18px;justify-content:center}
+  footer .links button{background:none;border:none;color:var(--ink-2);cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  footer .copy{margin-top:20px;font-size:13px}
+
+  /* Cookie banner */
+  .cookie{
+    position:fixed;left:50%;bottom:20px;transform:translateX(-50%) translateY(140%);
+    z-index:60;width:min(560px,calc(100% - 32px));
+    background:var(--surface);border:1px solid var(--hair);border-radius:18px;
+    box-shadow:0 24px 60px -24px rgba(31,31,35,.35);
+    padding:18px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+    transition:transform .5s var(--ease);
+  }
+  .cookie.show{transform:translateX(-50%) translateY(0)}
+  .cookie p{flex:1;min-width:220px;font-size:14px;color:var(--ink-2)}
+  .cookie .btns{display:flex;gap:8px}
+  .cookie button{border-radius:980px;padding:9px 18px;font-size:14px;font-weight:500;cursor:pointer;border:1px solid var(--hair)}
+  .cookie .accept{background:var(--brand);color:#fff;border-color:var(--brand)}
+  .cookie .decline{background:var(--surface);color:var(--ink)}
+
+  /* Privacy modal */
+  .modal{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:24px;
+    background:rgba(29,29,31,.4);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .modal.show{display:flex}
+  .modal .card{background:var(--surface);border-radius:24px;max-width:540px;width:100%;
+    padding:34px;max-height:84vh;overflow:auto}
+  .modal h3{font-size:24px;font-weight:700;margin-bottom:14px}
+  .modal .pp{font-size:15px;color:var(--ink-2);line-height:1.65}
+  .modal .pp p{margin-bottom:12px}
+  .modal .pp strong{color:var(--ink)}
+  .modal .close{margin-top:18px;background:var(--brand);color:#fff;border:none;border-radius:980px;padding:10px 22px;font-weight:500;cursor:pointer}
+
+  @media (max-width:640px){
+    .panel{flex-direction:column;text-align:center;padding:40px 26px;gap:24px}
+    .panel .body{display:flex;flex-direction:column;align-items:center}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto}
+    .panel{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <a class="brand" href="#top" aria-label="OnlyOne home">
+    <svg width="22" height="28" viewBox="0 0 100 128" fill="none" aria-hidden="true">
+      <circle cx="50" cy="34" r="22" stroke="var(--brand)" stroke-width="11"/>
+      <rect x="44" y="62" width="12" height="40" rx="6" fill="var(--brand)"/>
+    </svg>
+    <span>OnlyOne</span>
+  </a>
+  <button class="lang-toggle" id="langBtn" aria-label="Change language">한국어</button>
+</header>
+
+<section class="hero" id="top">
+  <div class="mark">
+    <svg width="74" height="94" viewBox="0 0 100 128" fill="none" aria-hidden="true">
+      <circle cx="50" cy="34" r="22" stroke="var(--brand)" stroke-width="11"/>
+      <rect x="44" y="62" width="12" height="40" rx="6" fill="var(--brand)"/>
+    </svg>
+  </div>
+  <h1>For a Happy Day</h1>
+  <p class="sub" data-i18n="sub"></p>
+  <p class="happy" id="happy"></p>
+  <div class="scroll-cue">
+    <span data-i18n="scroll"></span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</section>
+
+<main class="sites" id="siteList"></main>
+
+<!-- AD SLOT (kept hidden). To turn on: remove `hidden`, paste your ad code inside. -->
+<div class="ad-slot" id="adSlot" hidden>Ad space</div>
+
+<footer>
+  <div class="ft-mark">
+    <svg width="30" height="38" viewBox="0 0 100 128" fill="none" aria-hidden="true">
+      <circle cx="50" cy="34" r="22" stroke="var(--brand)" stroke-width="11"/>
+      <rect x="44" y="62" width="12" height="40" rx="6" fill="var(--brand)"/>
+    </svg>
+  </div>
+  <p class="say"><span data-i18n="say"></span> <a class="mail" href="mailto:onlyonecorpceo@gmail.com">onlyonecorpceo@gmail.com</a></p>
+  <div class="links">
+    <button id="ppLink" data-i18n="privacy"></button>
+    <button id="ckLink" data-i18n="cookieSettings"></button>
+  </div>
+  <p class="copy">© <span id="year"></span> OnlyOne</p>
+</footer>
+
+<!-- Cookie banner -->
+<div class="cookie" id="cookie" role="dialog" aria-live="polite">
+  <p data-i18n="cookieText"></p>
+  <div class="btns">
+    <button class="decline" id="ckDecline" data-i18n="decline"></button>
+    <button class="accept" id="ckAccept" data-i18n="accept"></button>
+  </div>
+</div>
+
+<!-- Privacy modal -->
+<div class="modal" id="ppModal" role="dialog" aria-modal="true">
+  <div class="card">
+    <h3 data-i18n="privacy"></h3>
+    <div class="pp" id="ppBody"></div>
+    <button class="close" id="ppClose" data-i18n="close"></button>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   ADD A NEW SITE  →  append one object. link:"" shows "Coming soon".
+===================================================================== */
+const SITES = [
+  {
+    id: "ai-match",
+    title: "AI Match",
+    desc: { en: "You Need Only One AI", ko: "당신에게 필요한 AI는 하나" },
+    link: "",  // ← paste the new Cloudflare URL here after you migrate it
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z" fill="currentColor"/>
+      <circle cx="18.5" cy="17.5" r="2.3" fill="currentColor"/>
+      <circle cx="6" cy="17" r="1.5" fill="currentColor" opacity=".5"/></svg>`
+  },
+  {
+    id: "tell-a-story",
+    title: "Tell a Story",
+    desc: { en: "Your story, told beautifully", ko: "당신의 이야기를 아름답게" },
+    link: "",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M5 4h9a3 3 0 013 3v13l-4-2.2L9 20V4z" fill="currentColor" opacity=".9"/>
+      <path d="M17 6h2v14l-2-1.1V6z" fill="currentColor" opacity=".45"/></svg>`
+  },
+];
+
+/* ===================== UI copy (EN / KO) ===================== */
+const I18N = {
+  en: {
+    sub:"Small things by OnlyOne that make your day a little better.",
+    scroll:"Scroll", say:"Say hello —", visit:"Visit", soon:"Coming soon", toggle:"한국어",
+    privacy:"Privacy", cookieSettings:"Cookie settings", close:"Done",
+    cookieText:"We use cookies to count visits (Google Analytics) and may show ads later. Okay?",
+    accept:"Accept", decline:"Decline",
+    happy:["One click. One smile.","Less searching, more finding.","Made to be simple.","Come back tomorrow.","Only one you need."],
+    ppBody:`<p>OnlyOne keeps this simple.</p>
+      <p><strong>What we collect.</strong> If you accept, Google Analytics sets cookies to count visits — pages viewed, rough region, device type. No names, no accounts.</p>
+      <p><strong>Ads.</strong> We may add ads or affiliate links later. Those partners may use cookies. Nothing runs before you accept.</p>
+      <p><strong>Your choice.</strong> Tap Decline and no analytics or ad cookies are set. Change it anytime via "Cookie settings" below.</p>
+      <p><strong>Contact.</strong> onlyonecorpceo@gmail.com</p>`
+  },
+  ko: {
+    sub:"당신의 하루를 조금 더 좋게 만드는 OnlyOne의 작은 것들.",
+    scroll:"아래로", say:"인사 보내기 —", visit:"방문하기", soon:"준비 중", toggle:"EN",
+    privacy:"개인정보 처리방침", cookieSettings:"쿠키 설정", close:"확인",
+    cookieText:"방문 수 집계(Google Analytics)와 향후 광고를 위해 쿠키를 사용해요. 괜찮을까요?",
+    accept:"동의", decline:"거부",
+    happy:["한 번의 클릭, 한 번의 미소.","덜 검색하고, 더 발견하세요.","단순하게 만들었어요.","내일 또 오세요.","당신에게 필요한 건 하나."],
+    ppBody:`<p>OnlyOne은 단순함을 지킵니다.</p>
+      <p><strong>수집 항목.</strong> 동의하시면 Google Analytics가 방문 수 집계를 위해 쿠키를 사용합니다 — 조회한 페이지, 대략적 지역, 기기 종류. 이름·계정 정보는 받지 않습니다.</p>
+      <p><strong>광고.</strong> 추후 광고나 제휴 링크를 넣을 수 있으며, 해당 파트너가 쿠키를 사용할 수 있습니다. 동의 전에는 아무것도 작동하지 않습니다.</p>
+      <p><strong>선택권.</strong> 거부를 누르면 분석·광고 쿠키가 설정되지 않습니다. 아래 "쿠키 설정"에서 언제든 변경할 수 있습니다.</p>
+      <p><strong>문의.</strong> onlyonecorpceo@gmail.com</p>`
+  }
+};
+
+let lang = (navigator.language || "en").startsWith("ko") ? "ko" : "en";
+
+/* small safe storage helper (no crash if storage is blocked) */
+const store = {
+  get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } },
+  set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} }
+};
+
+/* ===================== Render panels ===================== */
+function renderSites(){
+  document.getElementById("siteList").innerHTML = SITES.map(s=>{
+    const desc=s.desc[lang];
+    const btn=s.link
+      ? `<a class="go" href="${s.link}" target="_blank" rel="noopener"
+           onclick="gtag('event','open_site',{site_id:'${s.id}'})">
+           <span>${I18N[lang].visit}</span><span class="arr">→</span></a>`
+      : `<span class="go soon">${I18N[lang].soon}</span>`;
+    return `<section class="panel" data-id="${s.id}">
+      <div class="icon">${s.icon}</div>
+      <div class="body"><h2>${s.title}</h2><p class="desc">${desc}</p>${btn}</div>
+    </section>`;
+  }).join("");
+  observePanels();
+}
+
+/* ===================== Apply language ===================== */
+function applyLang(){
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{ el.textContent=I18N[lang][el.dataset.i18n]; });
+  document.getElementById("langBtn").textContent=I18N[lang].toggle;
+  document.getElementById("ppBody").innerHTML=I18N[lang].ppBody;
+  renderSites();
+  startHappy();
+}
+document.getElementById("langBtn").addEventListener("click",()=>{
+  lang=lang==="en"?"ko":"en"; applyLang(); gtag('event','switch_language',{language:lang});
+});
+
+/* ===================== Rotating "happy" line ===================== */
+let happyTimer;
+function startHappy(){
+  clearInterval(happyTimer);
+  const el=document.getElementById("happy"), lines=I18N[lang].happy;
+  let i=Math.floor(Math.random()*lines.length);
+  const show=()=>{ el.style.opacity=0; el.style.transform="translateY(6px)";
+    setTimeout(()=>{ el.textContent=lines[i%lines.length]; el.style.opacity=1; el.style.transform="none"; i++; },300); };
+  show(); happyTimer=setInterval(show,3600);
+}
+
+/* ===================== Scroll reveal ===================== */
+function observePanels(){
+  const io=new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target);} }); },{threshold:.18});
+  document.querySelectorAll(".panel").forEach(p=>io.observe(p));
+}
+
+/* ===================== Header border on scroll ===================== */
+addEventListener("scroll",()=>{ document.getElementById("topbar").classList.toggle("scrolled",scrollY>10); });
+
+/* ===================== Cookie consent ===================== */
+const banner=document.getElementById("cookie");
+function setConsent(granted){
+  gtag('consent','update',{
+    analytics_storage:granted?'granted':'denied',
+    ad_storage:granted?'granted':'denied',
+    ad_user_data:granted?'granted':'denied',
+    ad_personalization:granted?'granted':'denied'
+  });
+}
+function showBanner(force){
+  if(force || !store.get("consent")) banner.classList.add("show");
+}
+document.getElementById("ckAccept").addEventListener("click",()=>{ setConsent(true); store.set("consent","granted"); banner.classList.remove("show"); });
+document.getElementById("ckDecline").addEventListener("click",()=>{ setConsent(false); store.set("consent","denied"); banner.classList.remove("show"); });
+document.getElementById("ckLink").addEventListener("click",()=>showBanner(true));
+
+/* apply any previous choice on load */
+(function(){ const c=store.get("consent"); if(c) setConsent(c==="granted"); })();
+
+/* ===================== Privacy modal ===================== */
+const modal=document.getElementById("ppModal");
+document.getElementById("ppLink").addEventListener("click",()=>modal.classList.add("show"));
+document.getElementById("ppClose").addEventListener("click",()=>modal.classList.remove("show"));
+modal.addEventListener("click",e=>{ if(e.target===modal) modal.classList.remove("show"); });
+
+/* ===================== Init ===================== */
+document.getElementById("year").textContent=new Date().getFullYear();
+applyLang();
+setTimeout(()=>showBanner(false),800);
+</script>
+</body>
+</html>
