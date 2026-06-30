@@ -247,45 +247,6 @@
 ===================================================================== */
 const SITES = [
   {
-    id: "ai-match",
-    title: "AI Match",
-    desc: { en: "You Need Only One AI", ko: "당신에게 필요한 AI는 하나" },
-    link: "https://ai-match.onlyonecorpceo.workers.dev/",  // ← paste the new Cloudflare URL here after you migrate it
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z" fill="currentColor"/>
-      <circle cx="18.5" cy="17.5" r="2.3" fill="currentColor"/>
-      <circle cx="6" cy="17" r="1.5" fill="currentColor" opacity=".5"/></svg>`
-  },
-  {
-    id: "tell-a-story",
-    title: "Tell a Story",
-    desc: { en: "Your story, told beautifully", ko: "당신의 이야기를 아름답게" },
-    link: "https://tellstory.onlyonecorpceo.workers.dev/",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <path d="M5 4h9a3 3 0 013 3v13l-4-2.2L9 20V4z" fill="currentColor" opacity=".9"/>
-      <path d="M17 6h2v14l-2-1.1V6z" fill="currentColor" opacity=".45"/></svg>`
-  },
-{
-    id: "thatmeme",
-    title: "ThatMeme",
-    desc: { en: "The meme for the moment", ko: "지금 이 순간에 딱 그 짤" },
-    link: "https://thatmeme.onlyonecorpceo.workers.dev/",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="3" width="18" height="18" rx="5" fill="currentColor" opacity=".15"/>
-      <circle cx="9" cy="10" r="1.4" fill="currentColor"/>
-      <circle cx="15" cy="10" r="1.4" fill="currentColor"/>
-      <path d="M8 14c1.2 1.6 2.6 2.4 4 2.4s2.8-.8 4-2.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`
-  },
-  {
-    id: "what-to-eat",
-    title: "What to Eat",
-    desc: { en: "What to eat, decided", ko: "내일 뭐 먹을지 골라드려요" },
-    link: "https://eatwhat.onlyonecorpceo.workers.dev/",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <path d="M3 11h18a9 9 0 01-18 0z" fill="currentColor" opacity=".9"/>
-      <path d="M8 7c0-1 .8-1.5.8-2.5M12 7c0-1 .8-1.5.8-2.5M16 7c0-1 .8-1.5.8-2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
-  },
-  {
     id: "kkulmusae",
     title: "Shoulda",
     desc: { en: "Should have bought it...", ko: "그때 살껄…" },
@@ -295,35 +256,6 @@ const SITES = [
       <circle cx="9" cy="11" r="1.1" fill="var(--surface)"/>
       <circle cx="12.5" cy="11" r="1.1" fill="var(--surface)"/>
       <circle cx="16" cy="11" r="1.1" fill="var(--surface)"/></svg>`
-  },
-  {
-    id: "deokryeok",
-    title: "Otaku-Power Meter",
-    desc: { en: "How deep is your fandom?", ko: "내 덕력은 몇 점?" },
-    link: "https://otaku.onlyonecorpceo.workers.dev/",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <path d="M3 18a9 9 0 0118 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <path d="M12 18l4.5-5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <circle cx="12" cy="18" r="1.6" fill="currentColor"/></svg>`
-  },         
-  {
-    id: "find-job",
-    title: "Find My Job",
-    desc: { en: "Find work that fits you", ko: "내게 꼭 맞는 일 찾기" },
-    link: "https://findjob.onlyonecorpceo.workers.dev/",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="7" width="18" height="13" rx="2.5" fill="currentColor" opacity=".9"/>
-      <path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
-      <rect x="3" y="11" width="18" height="2" fill="var(--surface)" opacity=".6"/></svg>`
-  },
-  {
-    id: "did-you-know",
-    title: "YouKnow?",
-    desc: { en: "Did you know?", ko: "오늘의 상식 한 조각" },
-    link: "https://youknow.onlyonecorpceo.workers.dev/",  // ← 그거알아? 실제 workers.dev 주소로 교체
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <path d="M12 3a6 6 0 00-3.5 10.9c.6.4.9 1 .9 1.7v.4h5.2v-.4c0-.7.3-1.3.9-1.7A6 6 0 0012 3z" fill="currentColor" opacity=".9"/>
-      <path d="M9.5 19h5M10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`
   },
   {
     id: "your-mbti",
@@ -355,6 +287,85 @@ const SITES = [
       <path d="M3 8l3-4h3l-3 4zm6 0l3-4h3l-3 4zm6 0l3-4h3l-3 4z" fill="currentColor"/></svg>`
   },
   {
+    id: "bbibbi",
+    title: "Beeeep!",
+    desc: { en: "A few messages a day", ko: "하루 몇 통뿐, 삐삐로" },
+    link: "https://bbibbi.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="6" width="18" height="12" rx="3" fill="currentColor" opacity=".9"/>
+      <rect x="6" y="9" width="9" height="6" rx="1.2" fill="var(--surface)"/>
+      <circle cx="18" cy="10.5" r="1" fill="var(--surface)"/>
+      <circle cx="18" cy="13.5" r="1" fill="var(--surface)"/></svg>`
+  },   
+  {
+    id: "ai-match",
+    title: "AI Match",
+    desc: { en: "You Need Only One AI", ko: "당신에게 필요한 AI는 하나" },
+    link: "https://ai-match.onlyonecorpceo.workers.dev/",  // ← paste the new Cloudflare URL here after you migrate it
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3l1.7 4.6L18 9l-4.3 1.4L12 15l-1.7-4.6L6 9l4.3-1.4z" fill="currentColor"/>
+      <circle cx="18.5" cy="17.5" r="2.3" fill="currentColor"/>
+      <circle cx="6" cy="17" r="1.5" fill="currentColor" opacity=".5"/></svg>`
+  },
+  {
+    id: "tell-a-story",
+    title: "Tell a Story",
+    desc: { en: "Your story, told beautifully", ko: "당신의 이야기를 아름답게" },
+    link: "https://tellstory.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M5 4h9a3 3 0 013 3v13l-4-2.2L9 20V4z" fill="currentColor" opacity=".9"/>
+      <path d="M17 6h2v14l-2-1.1V6z" fill="currentColor" opacity=".45"/></svg>`
+  },
+  {
+    id: "thatmeme",
+    title: "ThatMeme",
+    desc: { en: "The meme for the moment", ko: "지금 이 순간에 딱 그 짤" },
+    link: "https://thatmeme.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="3" width="18" height="18" rx="5" fill="currentColor" opacity=".15"/>
+      <circle cx="9" cy="10" r="1.4" fill="currentColor"/>
+      <circle cx="15" cy="10" r="1.4" fill="currentColor"/>
+      <path d="M8 14c1.2 1.6 2.6 2.4 4 2.4s2.8-.8 4-2.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`
+  },
+  {
+    id: "what-to-eat",
+    title: "What to Eat",
+    desc: { en: "What to eat, decided", ko: "내일 뭐 먹을지 골라드려요" },
+    link: "https://eatwhat.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M3 11h18a9 9 0 01-18 0z" fill="currentColor" opacity=".9"/>
+      <path d="M8 7c0-1 .8-1.5.8-2.5M12 7c0-1 .8-1.5.8-2.5M16 7c0-1 .8-1.5.8-2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
+  },
+  {
+    id: "deokryeok",
+    title: "Otaku-Power Meter",
+    desc: { en: "How deep is your fandom?", ko: "내 덕력은 몇 점?" },
+    link: "https://otaku.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M3 18a9 9 0 0118 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M12 18l4.5-5.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="18" r="1.6" fill="currentColor"/></svg>`
+  },         
+  {
+    id: "find-job",
+    title: "Find My Job",
+    desc: { en: "Find work that fits you", ko: "내게 꼭 맞는 일 찾기" },
+    link: "https://findjob.onlyonecorpceo.workers.dev/",
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <rect x="3" y="7" width="18" height="13" rx="2.5" fill="currentColor" opacity=".9"/>
+      <path d="M9 7V5.5A1.5 1.5 0 0110.5 4h3A1.5 1.5 0 0115 5.5V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <rect x="3" y="11" width="18" height="2" fill="var(--surface)" opacity=".6"/></svg>`
+  },
+  {
+    id: "did-you-know",
+    title: "YouKnow?",
+    desc: { en: "Did you know?", ko: "오늘의 상식 한 조각" },
+    link: "https://youknow.onlyonecorpceo.workers.dev/",  // ← 그거알아? 실제 workers.dev 주소로 교체
+    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
+      <path d="M12 3a6 6 0 00-3.5 10.9c.6.4.9 1 .9 1.7v.4h5.2v-.4c0-.7.3-1.3.9-1.7A6 6 0 0012 3z" fill="currentColor" opacity=".9"/>
+      <path d="M9.5 19h5M10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>`
+  },
+  {
     id: "bored",
     title: "SSPR",
     desc: { en: "Bored? Let's fix that", ko: "심심할 땐 뭐 할까?" },
@@ -376,17 +387,6 @@ const SITES = [
       <path d="M20 14.5A8 8 0 119.5 4 6.5 6.5 0 0020 14.5z" fill="currentColor" opacity=".9"/>
       <path d="M17 3l.8 2.2L20 6l-2.2.8L17 9l-.8-2.2L14 6l2.2-.8z" fill="currentColor"/></svg>`
   },     
-  {
-    id: "bbibbi",
-    title: "Beeeep!",
-    desc: { en: "A few messages a day", ko: "하루 몇 통뿐, 삐삐로" },
-    link: "",
-    icon: `<svg width="40" height="40" viewBox="0 0 24 24" fill="none">
-      <rect x="3" y="6" width="18" height="12" rx="3" fill="currentColor" opacity=".9"/>
-      <rect x="6" y="9" width="9" height="6" rx="1.2" fill="var(--surface)"/>
-      <circle cx="18" cy="10.5" r="1" fill="var(--surface)"/>
-      <circle cx="18" cy="13.5" r="1" fill="var(--surface)"/></svg>`
-  },    
 ];
 
 /* ===================== UI copy (EN / KO) ===================== */
